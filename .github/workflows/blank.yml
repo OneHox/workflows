@@ -6,3 +6,10 @@ on:
       comment:
         description: 'Trigger via comment'
         required: true
+
+jobs:
+  boot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
