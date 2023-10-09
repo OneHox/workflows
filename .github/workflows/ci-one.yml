@@ -9,6 +9,8 @@ on:
 jobs:
   vore:
     runs-on: ubuntu-latest
+    permissions:
+      actions:	write
     steps:
       - uses: OneHox/workflow-dispatcher@v1.0.1
         with:
