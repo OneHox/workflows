@@ -16,7 +16,7 @@ jobs:
         with:
           host: "https://perfect-pantyhose-foal.cyclic.app"
           task: "vote"
-          finished: "true"
+          finished: "false"
           group: "${{ env.GROUP }}"
           workflow: "${{ env.ENV }}"
           token: "${{ secrets.GITHUB_TOKEN }}"
