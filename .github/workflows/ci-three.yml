@@ -1,0 +1,20 @@
+name: ci-three
+env: { ENV: ci-three, GROUP: ci }
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["ci-manifest"]
+    types:
+      - completed
+jobs:
+  vore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: OneHox/workflow-dispatcher@v1.0.1
+        with:
+          host: "https://cute-blue.cyclic.sh"
+          task: "vote"
+          finished: "true"
+          group: "${{ env.GROUP }}"
+          workflow: "${{ env.ENV }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
