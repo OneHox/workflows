@@ -1,5 +1,5 @@
 name: ci-manifest
-env: { ENV: ci-manifest, GROUP: ci }
+# env: { ENV: ci-manifest, GROUP: ci }
 on:
   workflow_dispatch:
 jobs:
@@ -11,7 +11,7 @@ jobs:
         with:
           host: "https://perfect-pantyhose-foal.cyclic.app"
           task: "manifest"
-          group: "${{ env.GROUP }}"
+          # group: "${{ env.GROUP }}"
           token: "${{ secrets.GITHUB_TOKEN }}"
           watch: "ci-one,ci-two,ci-three"
           workflowId: "ci-watcher.yml"
