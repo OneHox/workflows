@@ -9,11 +9,10 @@ jobs:
       - name: Alerting the server about the jobs
         uses: OneHox/workflow-dispatcher@v1.0.1
         with:
-          host: "https://cute-blue.cyclic.sh"
+          host: "https://perfect-pantyhose-foal.cyclic.app"
           task: "manifest"
           group: "${{ env.GROUP }}"
           token: "${{ secrets.GITHUB_TOKEN }}"
           watch: "ci-one,ci-two,ci-three"
           workflowId: "ci-watcher.yml"
-          repository: OneHox/workflows
-  
+          repository: "OneHox/workflows"
