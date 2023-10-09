@@ -15,4 +15,5 @@ jobs:
           token: "${{ secrets.GITHUB_TOKEN }}"
           watch: "ci-one,ci-two,ci-three"
           workflowId: "ci-watcher.yml"
+          workflowRef: "main"
           repository: "OneHox/workflows"
