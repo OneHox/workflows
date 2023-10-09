@@ -1,0 +1,15 @@
+name: ci-watcher
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Any message [optional]'
+        required: false
+
+jobs:
+  boot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
