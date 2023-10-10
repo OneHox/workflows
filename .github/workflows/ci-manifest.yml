@@ -17,7 +17,7 @@ jobs:
           host: "https://perfect-pantyhose-foal.cyclic.app"
           task: "manifest"
           group: "${{ env.GROUP }}"
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.WORKFLOW_TOKEN }}"
           watch: "ci-one,ci-two,ci-three"
           workflowId: "ci-watcher.yml"
           workflowRef: "${{ github.ref_name }}"
