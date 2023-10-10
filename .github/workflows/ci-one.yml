@@ -19,4 +19,4 @@ jobs:
           finished: "true"
           group: "${{ env.GROUP }}"
           workflow: "${{ env.ENV }}"
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.WORKFLOW_TOKEN }}"
