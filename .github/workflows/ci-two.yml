@@ -12,7 +12,7 @@ jobs:
     permissions:
       actions:	write
     steps:
-      - uses: OneHox/workflow-dispatcher@v1.0.1
+      - uses: OneHox/workflow-dispatcher@v1.0.3
         with:
           host: "https://perfect-pantyhose-foal.cyclic.app"
           task: "vote"
