@@ -20,5 +20,5 @@ jobs:
           token: "${{ secrets.WORKFLOW_TOKEN }}"
           watch: "ci-one,ci-two,ci-three"
           workflowId: "ci-watcher.yml"
-          workflowRef: "main" # "${{ github.ref_name }}"
+          workflowRef: "${{ github.ref_name }}"
           repository: "OneHox/workflows"
