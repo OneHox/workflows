@@ -7,7 +7,7 @@ on:
     types:
       - completed
 jobs:
-  vore:
+  vote:
     runs-on: ubuntu-latest
     permissions:
       actions:	write
