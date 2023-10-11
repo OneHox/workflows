@@ -16,7 +16,12 @@ jobs:
         with:
           script: |
             const wf = github.event.workflow_run;
-            core.setOutput('workflow_passed', wf.conclusion === 'success');
+            if (wf.conclusion === 'success') {
+              core.setOutput('workflow_passed', 'true');
+            } else {
+              core.setOutput('workflow_passed', 'false');
+            }
+
       - name: Evaluate conclusion
         run: |
           if [ "${{ steps.workflow-conclusion.outputs.workflow_passed }}" == "false" ]; then
