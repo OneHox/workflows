@@ -7,7 +7,25 @@ on:
     types:
       - completed
 jobs:
-  vore:
+  check-workflow-conclusion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Workflow Conclusion
+        id: workflow-conclusion
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const wf = github.event.workflow_run;
+            core.setOutput('workflow_passed', wf.conclusion === 'success');
+      - name: Evaluate conclusion
+        run: |
+          if [ "${{ steps.workflow-conclusion.outputs.workflow_passed }}" == "false" ]; then
+            echo "Child Workflow Failed! Exiting..."
+            exit 1  # Exit the current step with an error
+          fi
+
+  vote:
+    needs: ['check-workflow-conclusion']
     runs-on: ubuntu-latest
     permissions:
       actions:	write
