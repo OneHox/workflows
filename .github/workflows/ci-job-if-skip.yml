@@ -28,7 +28,7 @@ jobs:
       -  name: Get the code
          uses: actions/checkout@v4
       -  name: Print success message
-         run: echo "second"
+         run: echo ${{ needs.first.outputs.ok }}
   third:
     needs: [second]
     runs-on: ubuntu-latest
