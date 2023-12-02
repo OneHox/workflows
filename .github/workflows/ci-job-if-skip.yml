@@ -23,7 +23,7 @@ jobs:
   second:
     needs: [first]
     runs-on: ubuntu-latest
-    if: ${{ needs.first.outputs.ok }}
+    if: needs.first.outputs.ok
     steps:
       -  name: Get the code
          uses: actions/checkout@v4
