@@ -6,11 +6,11 @@ jobs:
   first:
     runs-on: ubuntu-latest
     steps:
-      -  name: Get the code
-         uses: actions/checkout@v4
-      -  name: Check env variable
-         run: echo "{{ secrets.ARG1 }}"
+      -  uses: actions/checkout@v4
+      -  run: echo ${{ secrets.ARG1 }}
+      -  run: echo ${{ secrets.ARG2 }}
   second:
+    needs: [first]
     runs-on: ubuntu-latest
     steps:
       -  name: Get the code
