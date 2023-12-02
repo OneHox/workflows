@@ -11,9 +11,13 @@ jobs:
     steps:
       -  uses: actions/checkout@v4
       -  run: echo ${{ env.ARG1 }}
+         if: ${{ env.ARG1 }}
       -  name: "Should Skip"
          run: echo ${{ env.ARG2 }}
-         if: ${{ env.ARG2 }}
+         if: ${{ env.ARG2 && env.ARG3 }}
+      -  name: "Should Not Skip"
+         run: echo ${{ env.ARG1 }}
+         if: ${{ env.ARG2 || env.ARG1 }}
   second:
     needs: [first]
     runs-on: ubuntu-latest
