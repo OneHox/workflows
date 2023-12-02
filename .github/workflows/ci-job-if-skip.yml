@@ -8,12 +8,14 @@ jobs:
     env:
       ARG1: ${{ secrets.ARG1 }}
       ARG2: ${{ secrets.ARG2 }}
+    outputs:
+      ok: $0
     steps:
       -  uses: actions/checkout@v4
       -  run: echo ${{ env.ARG1 }}
          if: ${{ env.ARG1 }}
       -  name: "Should Skip"
-         run: echo ${{ env.ARG2 }}
+         run: echo "::set-output name=ok::true"
          if: ${{ env.ARG2 && env.ARG3 }}
       -  name: "Should Not Skip"
          run: echo ${{ env.ARG1 }}
@@ -21,9 +23,17 @@ jobs:
   second:
     needs: [first]
     runs-on: ubuntu-latest
+    if: $
     steps:
       -  name: Get the code
          uses: actions/checkout@v4
       -  name: Print success message
-         run: echo "succeed"
-      
+         run: echo "second"
+  third:
+    needs: [second]
+    runs-on: ubuntu-latest
+    steps:
+      -  name: Get the code
+         uses: actions/checkout@v4
+      -  name: Print success message
+         run: echo "third"
