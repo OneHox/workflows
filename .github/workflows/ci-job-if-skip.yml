@@ -9,6 +9,11 @@ jobs:
       -  uses: actions/checkout@v4
       -  run: echo ${{ secrets.ARG1 }}
       -  run: echo ${{ secrets.ARG2 }}
+      -  run: |
+          if [ -z "${{ secrets.ARG2 }}" ]; then
+            echo "Secret ARG2 is not available. Skipping subsequent jobs."
+            exit 0
+          fi
   second:
     needs: [first]
     runs-on: ubuntu-latest
