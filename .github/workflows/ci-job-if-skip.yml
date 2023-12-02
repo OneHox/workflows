@@ -9,7 +9,7 @@ jobs:
       ARG1: ${{ secrets.ARG1 }}
       ARG2: ${{ secrets.ARG2 }}
     outputs:
-      ok: $0
+      ok: response
     steps:
       -  uses: actions/checkout@v4
       -  run: echo ${{ env.ARG1 }}
@@ -23,7 +23,7 @@ jobs:
   second:
     needs: [first]
     runs-on: ubuntu-latest
-    if: $
+    if: ${{ needs.first.outputs.ok }}
     steps:
       -  name: Get the code
          uses: actions/checkout@v4
