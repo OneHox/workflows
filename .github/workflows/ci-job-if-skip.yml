@@ -22,7 +22,7 @@ jobs:
          id: not_skip
          run: |
            echo ${{ env.ARG1 }}
-           echo "::set-output name=ok::false"
+           echo "::set-output name=ok::true"
          if: ${{ env.ARG2 || env.ARG1 }}
   second:
     needs: [first]
