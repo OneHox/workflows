@@ -9,15 +9,17 @@ jobs:
       ARG1: ${{ secrets.ARG1 }}
       ARG2: ${{ secrets.ARG2 }}
     outputs:
-      ok: false
+      ok: ${{ steps.skip.outputs.ok || steps.not_skip.outputs.ok }}
     steps:
       -  uses: actions/checkout@v4
       -  run: echo ${{ env.ARG1 }}
          if: ${{ env.ARG1 }}
       -  name: "Should Skip"
+         id: skip
          run: echo "::set-output name=ok::true"
          if: ${{ env.ARG2 && env.ARG3 }}
       -  name: "Should Not Skip"
+         id: not_skip
          run: |
            echo ${{ env.ARG1 }}
            echo "::set-output name=ok::true"
