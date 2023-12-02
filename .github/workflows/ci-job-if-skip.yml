@@ -9,7 +9,7 @@ jobs:
       -  name: Get the code
          uses: actions/checkout@v4
       -  name: Check env variable
-         run: echo {{ secrets.ARG1 }}
+         run: echo "{{ secrets.ARG1 }}"
   second:
     runs-on: ubuntu-latest
     steps:
