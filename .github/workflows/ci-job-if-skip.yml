@@ -27,7 +27,7 @@ jobs:
   second:
     needs: [first]
     runs-on: ubuntu-latest
-    if: needs.first.outputs.ok == "true"
+    if: ${{ needs.first.outputs.ok == "true" }}
     steps:
       -  name: Get the code
          uses: actions/checkout@v4
