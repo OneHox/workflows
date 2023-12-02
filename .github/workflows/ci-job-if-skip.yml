@@ -9,7 +9,7 @@ jobs:
       ARG1: ${{ secrets.ARG1 }}
       ARG2: ${{ secrets.ARG2 }}
     outputs:
-      ok: response
+      ok: false
     steps:
       -  uses: actions/checkout@v4
       -  run: echo ${{ env.ARG1 }}
