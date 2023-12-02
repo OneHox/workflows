@@ -5,12 +5,15 @@ on:
 jobs:
   first:
     runs-on: ubuntu-latest
+    env:
+      ARG1: ${{ secrets.ARG1 }}
+      ARG2: ${{ secrets.ARG2 }}
     steps:
       -  uses: actions/checkout@v4
-      -  run: echo ${{ secrets.ARG1 }}
-      -  name: "Should Fail"
-         run: echo ${{ secrets.ARG2 }}
-         if: secrets.ARG2
+      -  run: echo ${{ env.ARG1 }}
+      -  name: "Should Skip"
+         run: echo ${{ env.ARG2 }}
+         if: ${{ env.ARG2 }}
   second:
     needs: [first]
     runs-on: ubuntu-latest
