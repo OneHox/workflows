@@ -12,7 +12,7 @@ jobs:
       -  run: |
           if [ -z "${{ secrets.ARG2 }}" ]; then
             echo "Secret ARG2 is not available. Skipping subsequent jobs."
-            exit 0
+            exit 1
           fi
   second:
     needs: [first]
